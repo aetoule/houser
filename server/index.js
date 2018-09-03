@@ -12,6 +12,12 @@ massive(process.env.CONNECTION_STRING).then(database => {
     app.set('db', database)
 })
 
+const housesapi =  '/api/houses';
+
+app.get('/api/houses',controller.getDb);
+app.post('/api/houses', controller.addHouse);
+app.delete('/api/houses/:id', controller.deleteHouse);
+
 const PORT = 3018;
 app.listen(PORT, () => {
     console.log(`listening on port, ${PORT}`);
